@@ -24,6 +24,8 @@ program
   .option('-m, --matches <number>',
     'min number of instances for a match (default: 2)', parseInt)
   .option('-j, --jsx', 'support jsx files (default: false)')
+  .option('--swift', 'support swift files (default: false, experimental)')
+  .option('--objectivec', 'support objective-c files (default: false, experimental)')
   .option('-c, --config',
     'path to config file (default: .jsinspectrc)')
   .option('-r, --reporter [default|json|pmd]',
@@ -50,7 +52,7 @@ if (fs.existsSync(rcPath) && fs.lstatSync(rcPath).isFile()) {
     process.exit(3);
   }
 
-  ['threshold', 'identifiers', 'ignore', 'matches', 'jsx',
+  ['threshold', 'identifiers', 'ignore', 'matches', 'jsx', 'swift', 'objectivec',
    'reporter', 'suppress'].forEach(function(option) {
     if (program[option] === undefined && (option in rc)) {
       program[option] = rc[option];
@@ -63,6 +65,15 @@ suppliedPaths = (program.args.length) ? program.args : ['.'];
 
 if (program.jsx) {
   extensions.push('.jsx');
+}
+
+if (program.swift) {
+  extensions.push('.swift');
+}
+
+if (program.objectivec) {
+  extensions.push('.m');
+  extensions.push('.mm');
 }
 
 // chalk doesn't support short flags by default
