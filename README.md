@@ -54,6 +54,12 @@ npm install -g jsinspect
 Also available: [grunt-jsinspect](https://github.com/stefanjudis/grunt-jsinspect),
 and [gulp-jsinspect](https://github.com/alexeyraspopov/gulp-jsinspect)
 
+**If you want to use `.swift`, `.m` and `.mm` files experimental support, you must install `jsinspect` from source code:**
+
+``` bash
+npm install -g
+```
+
 ## Usage
 
 ```
