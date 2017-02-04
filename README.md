@@ -78,6 +78,8 @@ Options:
   -i, --identifiers                  match identifiers
   -m, --matches <number>             min number of instances for a match (default: 2)
   -j, --jsx                          support jsx files (default: false)
+  --swift                            support swift files (default: false, experimental)
+  --objectivec                       support objective-c files (default: false, experimental)
   -c, --config                       path to config file (default: .jsinspectrc)
   -r, --reporter [default|json|pmd]  specify the reporter to use
   -s, --suppress <number>            length to suppress diffs (default: 100, off: 0)
@@ -96,6 +98,8 @@ be used in place of the defaults listed above. For example:
   "matches":       2,
   "ignore":        "Test.js|Spec.js", // used as RegExp,
   "jsx":           true,
+  "swift":         true,
+  "objectivec":    true,
   "reporter":      "json",
   "suppress":      100,
 }
